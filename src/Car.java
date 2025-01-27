@@ -12,10 +12,10 @@ public abstract class Car implements Movable{
     private int[] currentDirection = {0,1};
 
     public Car(int nrDoors, double enginePower, Color color, String modelName){
-        nrDoors = this.nrDoors;
-        enginePower = this.enginePower;
-        color = this.color;
-        modelName = this.modelName;
+        this.nrDoors = nrDoors;
+        this.enginePower = enginePower;
+        this.color = color;
+        this.modelName = modelName;
         stopEngine();
 
     }
