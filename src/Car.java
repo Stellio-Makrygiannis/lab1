@@ -87,13 +87,25 @@ public abstract class Car implements Movable{
        
     }
 
-        // TODO fix this method according to lab pm
-        public void gas(double amount){
-            incrementSpeed(amount);
+    /* Increases the current speed of the car.
+    @param amount the amount to speed up.
+    @throws IllegalArgumentException if the parameter is not in the range 0.0 to 1.0 (inclusive)
+     */
+    public void gas(double amount){
+        if (amount > 1.0 || amount < 0.0) {
+            throw new IllegalArgumentException("amounts outside [0.0,1.0] are not allowed");
         }
+        incrementSpeed(amount);
+    }
     
-        // TODO fix this method according to lab pm
-        public void brake(double amount){
-            decrementSpeed(amount);
+    /* Decreases the current speed of the car.
+    @param amount the amount to slow down
+    @throws IllegalArgumentException if the parameter is not in the range 0.0 to 1.0 (inclusive)
+     */
+    public void brake(double amount){
+        if (amount > 1.0 || amount < 0.0) {
+            throw new IllegalArgumentException("amounts outside [0.0,1.0] are not allowed");
         }
+        decrementSpeed(amount);
+    }
 }

@@ -5,7 +5,7 @@ import java.awt.*;
 
 import static junit.framework.TestCase.assertEquals;
 
-public class CarGetters {
+public class TestCarGetters {
     private Saab95 saab;
     private Volvo240 volvo;
 
