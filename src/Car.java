@@ -45,7 +45,7 @@ public abstract class Car implements Movable{
     }
 
     public int[] getcurrentPosition(){
-        return currentDirection;
+        return currentPosition;
     }
 
     public int[] getcurrentDirection(){
@@ -88,8 +88,8 @@ public abstract class Car implements Movable{
     }
 
     /* Increases the current speed of the car.
-    @param amount the amount to speed up.
-    @throws IllegalArgumentException if the parameter is not in the range 0.0 to 1.0 (inclusive)
+     amount the amount to speed up.
+     IllegalArgumentException if the parameter is not in the range 0.0 to 1.0
      */
     public void gas(double amount){
         if (amount > 1.0 || amount < 0.0) {
@@ -99,8 +99,8 @@ public abstract class Car implements Movable{
     }
     
     /* Decreases the current speed of the car.
-    @param amount the amount to slow down
-    @throws IllegalArgumentException if the parameter is not in the range 0.0 to 1.0 (inclusive)
+     amount the amount to slow down
+     IllegalArgumentException if the parameter is not in the range 0.0 to 1.0
      */
     public void brake(double amount){
         if (amount > 1.0 || amount < 0.0) {
