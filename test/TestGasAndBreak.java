@@ -10,7 +10,6 @@ public class TestGasAndBreak {
     public void init() {
         car = new Saab95();
     }
-
     @Test
     public void testGasDoesNotSlowsCar() {
         double speed = car.getCurrentSpeed();

@@ -19,6 +19,7 @@ public class TestCarGetters {
     public void testDoorAmount() {
         assertEquals(saab.getNrDoors(), 2);
         assertEquals(volvo.getNrDoors(), 4);
+        assertEquals(scania.getNrDoors(), 2);
     }
 
     @Test
