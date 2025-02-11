@@ -2,12 +2,12 @@ import java.awt.*;
 
 public class Truck extends Car {
     private double truckBedPosition;
-    private double truckBedPositionMax;  // Added max value for the truck bed position
+    private double truckBedPositionMax;
 
     public Truck(int nrDoors, double enginePower, Color color, String modelName, double truckBedPosition, double truckBedPositionMax) {
         super(nrDoors, enginePower, color, modelName);
         this.truckBedPosition = truckBedPosition;
-        this.truckBedPositionMax = truckBedPositionMax;  // Store the max position
+        this.truckBedPositionMax = truckBedPositionMax;
     }
 
     public double getTruckBedPosition() {
@@ -34,7 +34,7 @@ public class Truck extends Car {
     protected void decrementSpeed(double amount) {
         if (truckBedPosition != 0) {
             throw new IllegalStateException("Cannot decelerate with raised truck bed.");}
-        super.decrementSpeed(amount);  // Corrected this line
+        super.decrementSpeed(amount);
     }
 
     public void setTruckBedPosition(double newTruckBedPosition) {
