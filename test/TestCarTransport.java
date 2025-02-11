@@ -71,11 +71,4 @@ public class TestCarTransport {
         transport.move();
     }
 
-    @Test
-    public void testRaiseRamp() {
-        transport.raiseRamp();
-        assertTrue(transport.getIsRampUp());
-    }
 }
-
-

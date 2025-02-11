@@ -6,7 +6,7 @@ public class Volvo240 extends Car{
     public Volvo240(){
         super(4, 100, Color.black, "Volvo240");
     }
-    
+
     @Override
     protected double speedFactor(){
         return super.speedFactor() * trimFactor;

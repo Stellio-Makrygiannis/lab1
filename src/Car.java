@@ -37,11 +37,11 @@ public abstract class Car implements Movable{
     }
 
     public void setColor(Color clr){
-	    color = clr;
+        color = clr;
     }
 
     public void startEngine(){
-	    currentSpeed = 0.1;
+        currentSpeed = 0.1;
     }
 
     public double[] getCurrentPosition(){
@@ -57,7 +57,7 @@ public abstract class Car implements Movable{
     }
 
     public void stopEngine(){
-	    currentSpeed = 0;
+        currentSpeed = 0;
     }
 
     protected double speedFactor() {
@@ -65,7 +65,7 @@ public abstract class Car implements Movable{
     }
 
     protected void incrementSpeed(double amount){
-	    currentSpeed = Math.min(getCurrentSpeed() + speedFactor() * amount,enginePower);
+        currentSpeed = Math.min(getCurrentSpeed() + speedFactor() * amount,enginePower);
     }
 
     protected void decrementSpeed(double amount){
@@ -93,7 +93,7 @@ public abstract class Car implements Movable{
         double temp = currentDirection[0];
         currentDirection[0] = currentDirection[1];
         currentDirection[1] = -temp;
-       
+
     }
 
     /* Increases the current speed of the car.
@@ -106,7 +106,7 @@ public abstract class Car implements Movable{
         }
         incrementSpeed(amount);
     }
-    
+
     /* Decreases the current speed of the car.
      amount the amount to slow down
      IllegalArgumentException if the parameter is not in the range 0.0 to 1.0
