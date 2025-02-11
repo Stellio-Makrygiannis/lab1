@@ -8,8 +8,8 @@ public abstract class Car implements Movable{
     private Color color; // Color of the car
     private String modelName; // The car model name
 
-    private int[] currentPosition = {0,0};
-    private int[] currentDirection = {0,1};
+    private double[] currentPosition = {0,0};
+    private double[] currentDirection = {0,1};
 
     public Car(int nrDoors, double enginePower, Color color, String modelName){
         this.nrDoors = nrDoors;
@@ -37,29 +37,35 @@ public abstract class Car implements Movable{
     }
 
     public void setColor(Color clr){
-	    color = clr;
+        color = clr;
     }
 
     public void startEngine(){
-	    currentSpeed = 0.1;
+        currentSpeed = 0.1;
     }
 
-    public int[] getcurrentPosition(){
+    public double[] getCurrentPosition(){
         return currentPosition;
     }
 
-    public int[] getcurrentDirection(){
+    public void setCurrentPosition(double[] position) {
+        currentPosition = position;
+    }
+
+    public double[] getCurrentDirection(){
         return currentDirection;
     }
 
     public void stopEngine(){
-	    currentSpeed = 0;
+        currentSpeed = 0;
     }
 
-    protected abstract double speedFactor();
+    protected double speedFactor() {
+        return getEnginePower() * 0.01;
+    }
 
     protected void incrementSpeed(double amount){
-	    currentSpeed = Math.min(getCurrentSpeed() + speedFactor() * amount,enginePower);
+        currentSpeed = Math.min(getCurrentSpeed() + speedFactor() * amount,enginePower);
     }
 
     protected void decrementSpeed(double amount){
@@ -68,23 +74,26 @@ public abstract class Car implements Movable{
 
     @Override
     public void move() {
-        currentPosition[0] += currentDirection[0] * getCurrentSpeed();
-        currentPosition[1] += currentDirection[1] * getCurrentSpeed();
+        double[] arr = {
+                currentPosition[0] + currentDirection[0] * getCurrentSpeed(),
+                currentPosition[1] + currentDirection[1] * getCurrentSpeed()
+        };
+        this.setCurrentPosition(arr);
     }
 
     @Override
     public void turnLeft() {
-        int temp = currentDirection[0];
+        double temp = currentDirection[0];
         currentDirection[0] = -currentDirection[1];
         currentDirection[1] = temp;
     }
 
     @Override
     public void turnRight() {
-        int temp = currentDirection[0];
+        double temp = currentDirection[0];
         currentDirection[0] = currentDirection[1];
         currentDirection[1] = -temp;
-       
+
     }
 
     /* Increases the current speed of the car.
@@ -97,7 +106,7 @@ public abstract class Car implements Movable{
         }
         incrementSpeed(amount);
     }
-    
+
     /* Decreases the current speed of the car.
      amount the amount to slow down
      IllegalArgumentException if the parameter is not in the range 0.0 to 1.0

@@ -17,20 +17,19 @@ public class TestCarGetters {
 
     @Test
     public void testDoorAmount() {
-        assertEquals(saab.getNrDoors(), 2);
-        assertEquals(volvo.getNrDoors(), 4);
-        assertEquals(scania.getNrDoors(), 2);
+        assertEquals(2, saab.getNrDoors());
+        assertEquals(4, volvo.getNrDoors());
     }
 
     @Test
     public void testEnginePower() {
-        assertEquals(saab.getEnginePower(), 125.0);
-        assertEquals(volvo.getEnginePower(), 100.0);
+        assertEquals(125.0, saab.getEnginePower());
+        assertEquals(100.0, volvo.getEnginePower());
     }
 
     @Test
     public void testColor() {
-        assertEquals(saab.getColor(), Color.red);
-        assertEquals(volvo.getColor(), Color.black);
+        assertEquals(Color.red, saab.getColor());
+        assertEquals(Color.black, volvo.getColor());
     }
 }

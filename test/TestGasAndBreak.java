@@ -1,7 +1,7 @@
 import org.junit.Before;
 import org.junit.Test;
 
-import static junit.framework.Assert.assertTrue;
+import static junit.framework.TestCase.assertTrue;
 
 public class TestGasAndBreak {
     private Saab95 car;
@@ -10,6 +10,7 @@ public class TestGasAndBreak {
     public void init() {
         car = new Saab95();
     }
+
     @Test
     public void testGasDoesNotSlowsCar() {
         double speed = car.getCurrentSpeed();
