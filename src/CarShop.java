@@ -22,7 +22,7 @@ public class CarShop <T extends Car> {
 
     public T removeCar(T car) {
         int CarIndex = currentCars.indexOf(car);
-        if (currentCars.contains(car)) {
+        if (carIndex != -1) {
             currentCars.remove(CarIndex);
             return car;
         } else{
