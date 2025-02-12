@@ -21,9 +21,9 @@ public class CarShop <T extends Car> {
     }
 
     public T removeCar(T car) {
-        int CarIndex = currentCars.indexOf(car);
+        int carIndex = currentCars.indexOf(car);
         if (carIndex != -1) {
-            currentCars.remove(CarIndex);
+            currentCars.remove(carIndex);
             return car;
         } else{
             throw new NoSuchElementException("No such car in the shop.");
