@@ -13,8 +13,12 @@ public class CarShop <T extends Car> {
         this.currentCars = new ArrayList<>();
     }
 
+    public boolean isShopFull() {
+        return currentCars.size() >= maxCars;
+    }
+
     public void addCar(T car) {
-        if (currentCars.size() >= maxCars) {
+        if (isShopFull()) {
             throw new IllegalStateException("Shop is full.");
         }
         currentCars.add(car);
