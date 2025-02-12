@@ -37,7 +37,7 @@ public class CarTransport extends Truck {
     }
 
     public Car removeCar() {
-        if (getTruckBedPosition() != 0) {
+        if (getTruckBedPosition() == 0) {
             throw new IllegalStateException();
         }
         return cars.pop();
