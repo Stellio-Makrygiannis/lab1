@@ -13,6 +13,7 @@ public class CarTransport extends Truck {
         super(2, 250, Color.red, "BilTransport", 0, 10);
         this.cars = new Stack<Car>();
     }
+    
     @Override
     public void setTruckBedPosition(double newTruckBedPosition) {
         if (getCurrentSpeed() > 0) {
@@ -26,8 +27,12 @@ public class CarTransport extends Truck {
         super.setTruckBedPosition(newTruckBedPosition);
     }
 
+    public boolean isTruckBedStraight() {
+        return getTruckBedPosition() == 0;
+    }
+
     public void addCar(Car car) {
-        if (getTruckBedPosition() == 0 || cars.size() >= maxCars) {
+        if (isTruckBedStraight() || cars.size() >= maxCars) {
             throw new IllegalStateException();
         }
         if (car.getEnginePower() > maxEnginePower || car.getClass() == CarTransport.class) {
@@ -37,21 +42,21 @@ public class CarTransport extends Truck {
     }
 
     public Car removeCar() {
-        if (getTruckBedPosition() == 0) {
+        if (isTruckBedStraight()) {
             throw new IllegalStateException();
         }
         return cars.pop();
     }
 
     public void lowerRamp() {
-        if (getCurrentSpeed() != 0) {
+        if (isTruckBedRaised()) {
             throw new IllegalStateException();
         }
         setTruckBedPosition(10);
     }
 
     public void raiseRamp() {
-        if (getCurrentSpeed() != 0) {
+        if (isTruckBedRaised()) {
             throw new IllegalStateException();
         }
         setTruckBedPosition(0);
