@@ -27,12 +27,13 @@ public class CarTransport extends Truck {
         super.setTruckBedPosition(newTruckBedPosition);
     }
 
-    public boolean isTruckBedStraight() {
+    @Override
+    public boolean isTruckBedRaised() {
         return getTruckBedPosition() == 0;
     }
 
     public void addCar(Car car) {
-        if (isTruckBedStraight() || cars.size() >= maxCars) {
+        if (isTruckBedRaised() || cars.size() >= maxCars) {
             throw new IllegalStateException();
         }
         if (car.getEnginePower() > maxEnginePower || car.getClass() == CarTransport.class) {
@@ -42,21 +43,21 @@ public class CarTransport extends Truck {
     }
 
     public Car removeCar() {
-        if (isTruckBedStraight()) {
+        if (isTruckBedRaised()) {
             throw new IllegalStateException();
         }
         return cars.pop();
     }
 
     public void lowerRamp() {
-        if (isTruckBedRaised()) {
+        if (isMoving()) {
             throw new IllegalStateException();
         }
         setTruckBedPosition(10);
     }
 
     public void raiseRamp() {
-        if (isTruckBedRaised()) {
+        if (isMoving()) {
             throw new IllegalStateException();
         }
         setTruckBedPosition(0);

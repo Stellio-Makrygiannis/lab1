@@ -32,6 +32,8 @@ public abstract class Car implements Movable{
         return currentSpeed;
     }
 
+    public boolean isMoving() { return getCurrentSpeed() != 0; }
+
     public Color getColor(){
         return color;
     }
