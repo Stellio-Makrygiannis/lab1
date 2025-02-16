@@ -51,6 +51,15 @@ public class CarController {
                     car.turnRight();
                     car.turnRight();
                     car.startEngine();
+                    double[] new_position = {car.getCurrentPosition()[0], 500};
+                    car.setCurrentPosition(new_position);
+                } else if (car.getCurrentPosition()[1] < 0) {
+                    car.stopEngine();
+                    car.turnRight();
+                    car.turnRight();
+                    car.startEngine();
+                    double[] new_position = {car.getCurrentPosition()[0], 0};
+                    car.setCurrentPosition(new_position);
                 }
                 int x = (int) Math.round(car.getCurrentPosition()[0]);
                 int y = (int) Math.round(car.getCurrentPosition()[1]);
