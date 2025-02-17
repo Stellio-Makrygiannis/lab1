@@ -13,3 +13,6 @@ Det skulle också vara trevligt att Samla allt beroende på JFrame i en klass.
 CarController har hand om bilarnas positiion och kollisioner.
 DrawPanel (confusing name) draws the cars which can move
 CarView is the buttons and dials. The stuff that doesn't move.
+
+# 4
+Förslag Ta bort CarControllers referens till CarView och ersätt den med en referens till DrawPanel.
