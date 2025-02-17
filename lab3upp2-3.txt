@@ -1,0 +1,12 @@
+# Laboration3 uppgift 2
+CarController beror på CarView som i sin tur beror på CarController. Det är inte bra.
+Allting kan vi dela upp det i flera klasser, eller gör de till en klass. Att bryta upp det är det bättre valet här eftersom de hanterar mång aolika ansvar tillsammans.
+
+Beroendet på JFrame, BufferedImage och Graphics är nödvändiga.
+Beroendet from CarView till CarController är nödvändigt
+Beroendet från Carview till DrawPanel är nödvändigt.
+
+# Uppgift 3
+CarController har hand om bilarnas positiion och kollisioner.
+DrawPanel (confusing name) draws the cars which can move
+CarView is the buttons and dials. The stuff that doesn't move.
