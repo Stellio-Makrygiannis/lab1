@@ -6,6 +6,9 @@ Beroendet på JFrame, BufferedImage och Graphics är nödvändiga.
 Beroendet from CarView till CarController är nödvändigt
 Beroendet från Carview till DrawPanel är nödvändigt.
 
+Lista av bilpositioner finns på flera ställen. Det skulle vara bättre att ha ett ändra CarList object som CarView, DrawPanel och CarController alla har en referens till.
+Det skulle också vara trevligt att Samla allt beroende på JFrame i en klass.
+
 # Uppgift 3
 CarController har hand om bilarnas positiion och kollisioner.
 DrawPanel (confusing name) draws the cars which can move
