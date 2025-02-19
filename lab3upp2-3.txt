@@ -10,9 +10,23 @@ Lista av bilpositioner finns på flera ställen. Det skulle vara bättre att ha 
 Det skulle också vara trevligt att Samla allt beroende på JFrame i en klass.
 
 # Uppgift 3
-CarController har hand om bilarnas positiion och kollisioner.
-DrawPanel (confusing name) draws the cars which can move
-CarView is the buttons and dials. The stuff that doesn't move.
+CarController har hand om bilarnas positiion, rörelser, funktioner och kollisioner.
+
+DrawPanel (förvirrande namn) målar bilarna och flyttar bilderna utefter hur bilarna
+flyttas. Den laddar bilder av respektive fordon samt Volvo shop, och lagrar dessa i instansvariabler.
+
+CarView är det som inte rör sig, knapparna som styr bilen. Den har hand om användargränssnittet, det
+vill säga layout och färgsättning av knappar och paneler. Den kommunicerar knapptryck till CarController
+via actionlisteners och kopplar knapparna till funktioner i CarController.
+
+Som vi redan nämnt har varje klass flera ansvarområden vilket strider mot SRP. Därför finns det anledningar
+att dela upp ansvarsområdena i ytterligare klasser i enighet med separation of concern. Ett exempel på
+varför som exempel CarController bör delas upp är att om vi skulle vilja göra en helt ny verkstad för
+till exempel Saab-bilar, skulle vi just nu behöva duplicera den if-sats som finns för Volvoverkstaden,
+istället för att ha en mer "generell" uppdelning som hanterar alla typer av verkstäder.
+
+Det finns liknande argument för att även övriga två klasser skulle behöva delas upp ytterligare för att
+bättre följa SoC och SRP.
 
 # 4
 Förslag Ta bort CarControllers referens till CarView och ersätt den med en referens till DrawPanel.
