@@ -1,2 +1,9 @@
-1. But it kallelsen till frame.drawPanel.repaint till frame.repaint. Låt denna funktion ta in ett argument för listan av bilar.
-2. Flytta main() till en separat Main klass som har en carController och en carView som attribut.
+Tanken med uml:
+- samla bil positionerna på ett ställe (CarController) så vi bara behöver uppdatera positionerna påe tt ställe
+- dela upp programmet i en logik del (CarController) och en visuel del (CarView)
+- Ta ut main funktionen till en separat Main class för separation of concern
+- Klassen Main ansvarar för att koppla knapparna mellan CarView och CarController
+- DrawPanel hanterar del uppgiften av att visa bilarna. CarView har en drawPanel som attribut och kallar drawPanels repaint funktion. Som "klient" (Main klassen) behöver man bara kalla carView.repaint() och så hanterar CarView att också kalla drawPanels repaint funktion.
+
+Förbättringsområden:
+Det kanske är bättre om DrawPanel och CarView har en referens till CarController istället för att Main ska skicka listan till deras repaint funktioner vid varje repaint.
