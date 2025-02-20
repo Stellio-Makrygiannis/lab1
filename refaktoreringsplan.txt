@@ -1,9 +1,6 @@
-Tanken med uml:
-- samla bil positionerna på ett ställe (CarController) så vi bara behöver uppdatera positionerna påe tt ställe
-- dela upp programmet i en logik del (CarController) och en visuel del (CarView)
-- Ta ut main funktionen till en separat Main class för separation of concern
-- Klassen Main ansvarar för att koppla knapparna mellan CarView och CarController
-- DrawPanel hanterar del uppgiften av att visa bilarna. CarView har en drawPanel som attribut och kallar drawPanels repaint funktion. Som "klient" (Main klassen) behöver man bara kalla carView.repaint() och så hanterar CarView att också kalla drawPanels repaint funktion.
+Plan:
+1. Samla alla bilars positioner i CarController så att alla positionsuppdateringar bara behöver ske på ett ställe.
 
-Förbättringsområden:
-Det kanske är bättre om DrawPanel och CarView har en referens till CarController istället för att Main ska skicka listan till deras repaint funktioner vid varje repaint.
+2. Skapa en Main-class med CarController och CarView som attrribut, denna klass skall agera mellanhand för att koppla knapparna mellan CarView och CarController och skicka anrop till CarView som i sin tur kallar drawPanels repaint() funktion. Anrop hanteras därmed nu mer centralt från Main istället för direkta anrop klasserna sinsemellan. 
+
+3. Se till att CarController tar hand om all logik och CarView tar hand om alla visuella komponenter  som ska “målas” genom anrop till DrawPanel (som “initierats” i från Main). Således får vi en tydligare uppdelning där CarController endast står för logik, CarView för de visuella komponenterna, DrawPanel för själva renderingen och Main för sammankopplingen av dessa tre. 
