@@ -1,0 +1,2 @@
+1. But it kallelsen till frame.drawPanel.repaint till frame.repaint. Låt denna funktion ta in ett argument för listan av bilar.
+2. Flytta main() till en separat Main klass som har en carController och en carView som attribut.
