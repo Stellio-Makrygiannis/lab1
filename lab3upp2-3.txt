@@ -9,7 +9,6 @@ Beroendet från Carview till DrawPanel är nödvändigt.
 
 Lista av bilpositioner finns på flera ställen. Det skulle vara bättre att ha ett enda
 CarList object som CarView, DrawPanel och CarController alla har en referens till.
-Det skulle också vara positivt att samla allt beroende på JFrame i en klass.
 
 Just nu kallar vi repaint genom att först gå till frame (CarView) och sedan
 dess attribute for DrawPanel och sedan kör vi repaint. Detta går emot flera design principer.
