@@ -59,19 +59,26 @@ public class CarController {
         public void actionPerformed(ActionEvent e) {
             ArrayList<Car> cars_to_remove = new ArrayList<>();
             for (Car car : cars) {
-                car.move();
-                if (car.getCurrentPosition()[0] > 700) {
-                    car.stopEngine();
-                    car.turnRight();
-                    car.turnRight();
-                    car.startEngine();
-                    car.setCurrentPosition(new double[] {700, car.getCurrentPosition()[1]});
-                } else if (car.getCurrentPosition()[0] < 0) {
-                    car.stopEngine();
-                    car.turnRight();
-                    car.turnRight();
-                    car.startEngine();
-                    car.setCurrentPosition(new double[] {0, car.getCurrentPosition()[1]});
+                if (car.isMoving()) {
+                    try {
+                        car.move();
+                    }
+                    catch(Exception _) {
+                        System.exit(1);
+                    }
+                    if (car.getCurrentPosition()[0] > 700) {
+                        car.stopEngine();
+                        car.turnRight();
+                        car.turnRight();
+                        car.startEngine();
+                        car.setCurrentPosition(new double[]{700, car.getCurrentPosition()[1]});
+                    } else if (car.getCurrentPosition()[0] < 0) {
+                        car.stopEngine();
+                        car.turnRight();
+                        car.turnRight();
+                        car.startEngine();
+                        car.setCurrentPosition(new double[]{0, car.getCurrentPosition()[1]});
+                    }
                 }
                 int x = (int) Math.round(car.getCurrentPosition()[0]);
                 int y = (int) Math.round(car.getCurrentPosition()[1]);
@@ -141,7 +148,11 @@ public class CarController {
     void scaniaLiftBed() {
         for (Car car : cars) {
             if (car instanceof Scania) {
-                ((Scania) car).setTruckBedPosition(((Scania) car).getTruckBedPositionMax());
+                try {
+                    ((Scania) car).setTruckBedPosition(((Scania) car).getTruckBedPositionMax());
+                } catch (Exception _) {
+                    System.exit(1);
+                }
             }
         }
     }
@@ -149,7 +160,11 @@ public class CarController {
     void scaniaLowerBed() {
         for (Car car : cars) {
             if (car instanceof Scania) {
-                ((Scania) car).setTruckBedPosition(0);
+                try {
+                    ((Scania) car).setTruckBedPosition(0);
+                } catch (Exception _) {
+                    System.exit(1);
+                }
             }
         }
     }
