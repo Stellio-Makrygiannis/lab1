@@ -6,13 +6,13 @@ import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 public class CarSet {
-    private final List<Car> cars = new ArrayList<>();
+    public final List<Car> cars = new ArrayList<>();
 
-    void addCar(Car car) {
+    public void addCar(Car car) {
         cars.add(car);
     }
 
-    void removeCar(Car car) {
+    public void removeCar(Car car) {
         cars.remove(car);
     }
 

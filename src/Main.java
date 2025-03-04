@@ -9,19 +9,19 @@ public class Main {
         CarController cc = new CarController();
 
         //
-        cc.cars.add(new Volvo240());
-        cc.cars.add(new Saab95());
-        cc.cars.add(new Scania());
+        cm.carSet.addCar(new Volvo240());
+        cm.carSet.addCar(new Saab95());
+        cm.carSet.addCar(new Scania());
 
-        for (int i = 0; i < cc.cars.size(); i++) {
-            cc.cars.get(i).setCurrentPosition(new double[]{0, 100 * i});
-            cc.cars.get(i).turnLeft();
+        for (int i = 0; i < cm.carSet.cars.size(); i++) {
+            cm.carSet.cars.get(i).setCurrentPosition(new double[]{0, 100 * i});
+            cm.carSet.cars.get(i).turnLeft();
         }
 
         // Start a new view and send a reference of self
-        cc.frame = new CarView("CarSim 1.0", cc);
+        cm.frame = new CarView("CarSim 1.0", cm);
 
         // Start the timer
-        cc.timer.start();
+        cm.timer.start();
     }
 }

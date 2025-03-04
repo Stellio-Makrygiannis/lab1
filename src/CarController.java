@@ -1,3 +1,4 @@
+
 import CarModel.*;
 import CarView.CarView;
 
@@ -60,8 +61,8 @@ public class CarController {
                 int x = (int) Math.round(car.getCurrentPosition()[0]);
                 int y = (int) Math.round(car.getCurrentPosition()[1]);
                 switch (car) {
-                    case Volvo240 _ -> frame.drawPanel.move_volvo240(x, y);
-                    case Saab95 _ -> frame.drawPanel.move_saab95(x, y);
+                    case Volvo240 _ -> frame.carPanel.update();
+                    case Saab95 _ -> frame.carPanel.move_saab95(x, y);
                     case Scania _ -> frame.drawPanel.move_scania(x, y);
                     default -> {
                     }
@@ -73,7 +74,7 @@ public class CarController {
                     }
                 }
                 // repaint() calls the paintComponent method of the panel
-                frame.drawPanel.repaint();
+                frame.carPanel.repaint();
             }
             for (Car car : cars_to_remove) {
                 cars.remove(car);
