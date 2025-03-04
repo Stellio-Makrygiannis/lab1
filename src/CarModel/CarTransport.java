@@ -1,6 +1,6 @@
+package CarModel;
+
 import java.awt.*;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Stack;
 
 
@@ -21,7 +21,7 @@ public class CarTransport extends Truck {
         }
 
         if (newTruckBedPosition != 0 && newTruckBedPosition != getTruckBedPositionMax()) {
-            throw new IllegalArgumentException("Truck bed position must be either 0 (up) or " + getTruckBedPositionMax() + " (down).");
+            throw new IllegalArgumentException("CarModel.Truck bed position must be either 0 (up) or " + getTruckBedPositionMax() + " (down).");
         }
 
         super.setTruckBedPosition(newTruckBedPosition);

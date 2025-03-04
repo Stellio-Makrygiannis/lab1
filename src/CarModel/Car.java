@@ -1,3 +1,5 @@
+package CarModel;
+
 import java.awt.*;
 
 public abstract class Car implements Movable{

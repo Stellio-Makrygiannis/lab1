@@ -1,3 +1,7 @@
+import CarModel.Car;
+import CarModel.CarTransport;
+import CarModel.Saab95;
+import CarModel.Volvo240;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -23,7 +27,7 @@ public class TestCarTransport {
     public void testAddCarWithTooMuchEnginePower() {
         class LargeCar extends Car {
             public LargeCar() {
-                super(10, 9999, Color.black, "Large Car");
+                super(10, 9999, Color.black, "Large CarModel.Car");
             }
         }
 

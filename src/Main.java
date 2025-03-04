@@ -1,3 +1,8 @@
+import CarModel.Saab95;
+import CarModel.Scania;
+import CarModel.Volvo240;
+import CarView.CarView;
+
 public class Main {
     public static void main(String[] args) {
         // Instance of this class

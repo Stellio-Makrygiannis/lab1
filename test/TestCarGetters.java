@@ -1,3 +1,5 @@
+import CarModel.Saab95;
+import CarModel.Volvo240;
 import org.junit.Before;
 import org.junit.Test;
 

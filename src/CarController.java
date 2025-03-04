@@ -1,7 +1,7 @@
-import com.sun.jdi.VoidValue;
+import CarModel.*;
+import CarView.CarView;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -81,68 +81,5 @@ public class CarController {
         }
     }
 
-    // Calls the gas method for each car once
-    void gas(int amount) {
-        double gas = ((double) amount) / 100;
-        for (Car car : cars) {
-            car.gas(gas);
-        }
-    }
-    void brake(int amount) {
-        double brake = ((double) amount) / 100;
-        for (Car car : cars) {
-            car.brake(brake);
-        }
-    }
-    void turboOn() {
-        for (Car car : cars) {
-            if (car instanceof Saab95) {
-                ((Saab95) car).setTurboOn();
-            }
-        }
-    }
 
-    void turboOff() {
-        for (Car car : cars) {
-            if (car instanceof Saab95) {
-                ((Saab95) car).setTurboOff();
-            }
-        }
-    }
-
-    void startAllCars() {
-        for (Car car : cars) {
-            car.startEngine();
-        }
-    }
-
-    void stopAllCars() {
-        for (Car car : cars) {
-            car.stopEngine();
-        }
-    }
-
-    void scaniaLiftBed() {
-        for (Car car : cars) {
-            if (car instanceof Scania) {
-                try {
-                    ((Scania) car).setTruckBedPosition(((Scania) car).getTruckBedPositionMax());
-                } catch (Exception _) {
-                    System.exit(1);
-                }
-            }
-        }
-    }
-
-    void scaniaLowerBed() {
-        for (Car car : cars) {
-            if (car instanceof Scania) {
-                try {
-                    ((Scania) car).setTruckBedPosition(0);
-                } catch (Exception _) {
-                    System.exit(1);
-                }
-            }
-        }
-    }
 }

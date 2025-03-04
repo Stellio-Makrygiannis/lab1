@@ -1,3 +1,4 @@
+import CarModel.Saab95;
 import org.junit.Before;
 import org.junit.Test;
 

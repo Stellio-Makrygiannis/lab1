@@ -1,16 +1,16 @@
 # Laboration3 uppgift 2
-CarController beror på CarView som i sin tur beror på CarController. Det är inte bra (hög coupling)
+CarController beror på CarView.CarView som i sin tur beror på CarController. Det är inte bra (hög coupling)
 Antingen kan vi dela upp det i flera klasser, eller göra de till en och samma klass. Att bryta upp det är
 det bättre valet här eftersom de hanterar många olika ansvar tillsammans.
 
 Beroendet på JFrame, BufferedImage och Graphics är nödvändiga.
-Beroendet from CarView till CarController är nödvändigt
+Beroendet from CarView.CarView till CarController är nödvändigt
 Beroendet från Carview till DrawPanel är nödvändigt.
 
 Lista av bilpositioner finns på flera ställen. Det skulle vara bättre att ha ett enda
-CarList object som CarView, DrawPanel och CarController alla har en referens till.
+CarList object som CarView.CarView, DrawPanel och CarController alla har en referens till.
 
-Just nu kallar vi repaint genom att först gå till frame (CarView) och sedan
+Just nu kallar vi repaint genom att först gå till frame (CarView.CarView) och sedan
 dess attribute for DrawPanel och sedan kör vi repaint. Detta går emot flera design principer.
 
 # Uppgift 3
@@ -19,7 +19,7 @@ CarController har hand om bilarnas positiion, rörelser, funktioner och kollisio
 DrawPanel (förvirrande namn) målar bilarna och flyttar bilderna utefter hur bilarna
 flyttas. Den laddar bilder av respektive fordon samt Volvo shop, och lagrar dessa i instansvariabler.
 
-CarView är det som inte rör sig, knapparna som styr bilen. Den har hand om användargränssnittet, det
+CarView.CarView är det som inte rör sig, knapparna som styr bilen. Den har hand om användargränssnittet, det
 vill säga layout och färgsättning av knappar och paneler. Den kommunicerar knapptryck till CarController
 via actionlisteners och kopplar knapparna till funktioner i CarController.
 
@@ -33,4 +33,4 @@ Det finns liknande argument för att även övriga två klasser skulle behöva d
 bättre följa SoC och SRP. 
 
 # 4
-Förslag Ta bort CarControllers referens till CarView och ersätt den med en referens till DrawPanel.
+Förslag Ta bort CarControllers referens till CarView.CarView och ersätt den med en referens till DrawPanel.
