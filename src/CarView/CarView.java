@@ -27,7 +27,7 @@ public class CarView implements ModelUpdateListener {
 
     private final JFrame viewFrame = new JFrame();
 
-    private final CarPanel carPanel;
+    public final CarPanel carPanel;
 
     JPanel controlPanel = new JPanel();
 

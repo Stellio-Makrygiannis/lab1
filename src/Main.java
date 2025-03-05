@@ -1,27 +1,30 @@
-import CarModel.Saab95;
-import CarModel.Scania;
-import CarModel.Volvo240;
+import CarModel.*;
 import CarView.CarView;
+
+import java.awt.*;
+import java.util.Iterator;
 
 public class Main {
     public static void main(String[] args) {
         // Instance of this class
-        CarController cc = new CarController();
+        CarModel carModel = new CarModel();
 
-        //
-        cc.cars.add(new Volvo240());
-        cc.cars.add(new Saab95());
-        cc.cars.add(new Scania());
+        carModel.addCar(new Volvo240());
+        carModel.addCar(new Saab95());
+        carModel.addCar(new Scania());
 
-        for (int i = 0; i < cc.cars.size(); i++) {
-            cc.cars.get(i).setCurrentPosition(new double[]{0, 100 * i});
-            cc.cars.get(i).turnLeft();
+        int i = 0;
+        Iterator<Car> carIterator = carModel.carIterator();
+        while (carIterator.hasNext()) {
+            Car car = carIterator.next();
+            car.setCurrentPosition(new double[]{0, 100 * i});
+            car.turnLeft();
+            i += 1;
         }
 
         // Start a new view and send a reference of self
-        cc.frame = new CarView("CarSim 1.0", cc);
-
-        // Start the timer
-        cc.timer.start();
+        CarView carView = new CarView(carModel.getCarSet(), carModel.getVolvoWorkshop());
+        carModel.addListener(carView);
+        carModel.animate();
     }
 }

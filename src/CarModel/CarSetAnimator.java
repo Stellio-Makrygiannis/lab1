@@ -1,13 +1,16 @@
 package CarModel;
 
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class CarSetAnimator {
         private final CarSet carSet;
+        private final Point volvoWorkshop;
 
-        public CarSetAnimator(CarSet carSet) {
+        public CarSetAnimator(CarSet carSet, Point volvoWorkshop) {
             this.carSet = carSet;
+            this.volvoWorkshop = volvoWorkshop;
         }
 
         public void update() {
@@ -30,6 +33,10 @@ public class CarSetAnimator {
                 car.turnRight();
                 car.startEngine();
                 car.setCurrentPosition(new double[]{0, car.getCurrentPosition()[1]});
+            }
+
+            for (Car car : carSet.filterCars(car -> car instanceof Volvo240 && Math.abs(car.getCurrentPosition()[0] - volvoWorkshop.x) < 50 && Math.abs(car.getCurrentPosition()[1] - volvoWorkshop.y) < 100)) {
+                carSet.removeCar(car);
             }
         }
 
