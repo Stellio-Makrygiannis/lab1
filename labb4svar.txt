@@ -17,9 +17,4 @@ Det som åtgärdats med våran nya design är att det nu finns en ordentlig mode
 Den lista med bilar som tidigare låg i CarController hanteras numera i CarModel genom
 CarSet, detta innebär att CarModel hanterar datan vilket stämmer överens med var den
 bör ha för uppgift. Den referens som tillät att CarView anropade CarController och därmed
-inte var “dum” utan hanterade logik är nu borta. Just detta är dock fortfarande inte helt
-löst eftersom den nu istället anropar CarSet direkt. Nu när vi har löst en CarModel had
-e det potentiellt varit rimligt att fortfarande ha en CarController men mer i den rollen
-som den är tänkt i MVC. Denna hade kunnat lyssna på vad CarView ser och hantera vad det
-betyder och sedan skicka vidare till CarModel. På så sätt slipper CarView helt att ta
-hand om logik.
+inte var “dum” utan hanterade logik är nu borta.
