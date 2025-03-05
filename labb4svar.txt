@@ -1,0 +1,25 @@
+
+Uppgift 2:
+
+Till att börja med så saknar den ursprungliga koden helt en model-del vilket i sig avviker
+från MVC idealet. Att det saknas en model har också tvingat över mycket av kodens ansvar
+till Controller. Tanken är att controllern ska vara tunn och bara hantera input från användare.
+I den ursprungliga koden så hanteras till exempel en lista över bilar helt i CarController.
+Denna borde istället ligga i model (svårt när model inte ens finns) som håller data och kan
+hantera domänlogik på ett smart sätt. Detta hade också gjort CarController tunnare.
+När det gäller att viewen ska vara “dum” och bara visa finns det också förbättringspotential i
+ursprungskoden. CarView kallar på CarController och hanterar därmed även logik, något den inte
+ska göra om den ska förbli “dum”. CarView hanterar även en del knappar vilket också strider mot
+att den endast ska visa. Överlag så är de olika delarna väldigt sammankopplade i koden vilket
+gör det svårt för dem att få varsitt enskilt syfte.
+
+Det som åtgärdats med våran nya design är att det nu finns en ordentlig model.
+Den lista med bilar som tidigare låg i CarController hanteras numera i CarModel genom
+CarSet, detta innebär att CarModel hanterar datan vilket stämmer överens med var den
+bör ha för uppgift. Den referens som tillät att CarView anropade CarController och därmed
+inte var “dum” utan hanterade logik är nu borta. Just detta är dock fortfarande inte helt
+löst eftersom den nu istället anropar CarSet direkt. Nu när vi har löst en CarModel had
+e det potentiellt varit rimligt att fortfarande ha en CarController men mer i den rollen
+som den är tänkt i MVC. Denna hade kunnat lyssna på vad CarView ser och hantera vad det
+betyder och sedan skicka vidare till CarModel. På så sätt slipper CarView helt att ta
+hand om logik.
