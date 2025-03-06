@@ -18,3 +18,30 @@ Den lista med bilar som tidigare låg i CarController hanteras numera i CarModel
 CarSet, detta innebär att CarModel hanterar datan vilket stämmer överens med var den
 bör ha för uppgift. Den referens som tillät att CarView anropade CarController och därmed
 inte var “dum” utan hanterade logik är nu borta.
+
+Uppgift 3:
+
+Observer Pattern
+Observer används genom CarSetAnimator och ModelUpdateListener.
+CarSetAnimator håller en lista av ModelUpdateListener-objekt ("observer-objekt") och anropar
+actOnModelUpdate() för att uppdatera viewen när modellen förändras.
+Detta separerar mellan logik i model och visning i view , vilket följer MVC-strukturen.
+UI uppdateras automatiskt när modellen ändras utan direkt beroende mellan modell och view.
+
+Factory Method Pattern
+Avseende Factory Method kan en förbättring vara att skapa en CarFactory-klass som producerar bilar
+istället för att direkt initiera Volvo240, Saab95, och Scania i Main.
+Detta skulle möjliggöra en flexibel utökning av nya biltyper utan att ändra Main, vilket
+i nuläget får anses varas en svaghet.
+
+State Pattern
+Just nu använder vi if-satser och instanskontroller (instanceof) för att hantera
+olika bilbeteenden (t.ex. Saab95 med turbo och Scania med lyftbart flak).
+Genom att använda State pattern skulle varje biltyp kunna ha egna tillstånd
+(t.ex. "turbo på" eller "flaket uppe" m.fl.) vilket skulle minska behovet av instanceof och
+göra koden mer modulär.
+
+Composite Pattern
+Composite pattern följs relativt väl i vår design genom en hierarkisk struktur där gemensam
+funktionalitet för bilar samlas i Car-klassen. Truck-klassen ärver denna och lägger till specifik
+funktionalitet, precis som Volvo240, Saab95 och slutligen Scania gör.
