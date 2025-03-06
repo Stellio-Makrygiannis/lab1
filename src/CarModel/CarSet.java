@@ -1,12 +1,10 @@
 package CarModel;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
-public class CarSet {
-    public final List<Car> cars = new ArrayList<>();
+public class CarSet {public final List<Car> cars = new ArrayList<>();
 
     public void addCar(Car car) {
         cars.add(car);
@@ -40,17 +38,13 @@ public class CarSet {
     }
     public void turboOn() {
         for (Car car : cars) {
-            if (car instanceof Saab95) {
-                ((Saab95) car).setTurboOn();
-            }
+            car.setTurboOn();
         }
     }
 
     public void turboOff() {
         for (Car car : cars) {
-            if (car instanceof Saab95) {
-                ((Saab95) car).setTurboOff();
-            }
+            car.setTurboOff();
         }
     }
 

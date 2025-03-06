@@ -64,7 +64,7 @@ public abstract class Car implements Movable{
         currentSpeed = 0;
     }
 
-    protected double speedFactor() {
+    public double speedFactor() {
         return getEnginePower() * 0.01;
     }
 
@@ -120,5 +120,11 @@ public abstract class Car implements Movable{
             throw new IllegalArgumentException("amounts outside [0.0,1.0] are not allowed");
         }
         decrementSpeed(amount);
+    }
+
+    public void setTurboOn(){
+    }
+
+    public void setTurboOff(){
     }
 }
