@@ -1,5 +1,6 @@
 import CarModel.*;
 import CarView.CarView;
+import com.sun.source.tree.NewArrayTree;
 
 import java.awt.*;
 import java.util.Iterator;
@@ -9,9 +10,9 @@ public class Main {
         // Instance of this class
         CarModel carModel = new CarModel();
 
-        carModel.addCar(new Volvo240());
-        carModel.addCar(new Saab95());
-        carModel.addCar(new Scania());
+        carModel.addCar(CarFactory.NewCar("Volvo240"));
+        carModel.addCar(CarFactory.NewCar("Saab95"));
+        carModel.addCar(CarFactory.NewCar("Scania"));
 
         int i = 0;
         Iterator<Car> carIterator = carModel.carIterator();
