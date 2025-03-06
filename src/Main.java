@@ -10,9 +10,9 @@ public class Main {
         // Instance of this class
         CarModel carModel = new CarModel();
 
-        carModel.addCar(CarFactory.NewCar("Volvo240"));
-        carModel.addCar(CarFactory.NewCar("Saab95"));
-        carModel.addCar(CarFactory.NewCar("Scania"));
+        carModel.addCar(CarFactory.newVolvo());
+        carModel.addCar(CarFactory.newSaab95());
+        carModel.addCar(CarFactory.newScania());
 
         int i = 0;
         Iterator<Car> carIterator = carModel.carIterator();

@@ -9,6 +9,7 @@ import javax.swing.event.ChangeListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Random;
 
 /**
  * This class represents the full view of the MVC pattern of your car simulator.
@@ -40,8 +41,10 @@ public class CarView implements ModelUpdateListener {
     JButton brakeButton = new JButton("Brake");
     JButton turboOnButton = new JButton("Saab Turbo on");
     JButton turboOffButton = new JButton("Saab Turbo off");
-    JButton liftBedButton = new JButton("CarModel.Scania Lift Bed");
-    JButton lowerBedButton = new JButton("Lower Lift Bed");
+    JButton liftBedButton = new JButton("Scania Lift Bed");
+    JButton lowerBedButton = new JButton("Scania Lower Bed");
+    JButton addCarButton = new JButton("Add Car");
+    JButton removeCarButton = new JButton("Remove Car");
 
     JButton startButton = new JButton("Start all cars");
     JButton stopButton = new JButton("Stop all cars");
@@ -95,9 +98,11 @@ public class CarView implements ModelUpdateListener {
         controlPanel.add(gasButton, 0);
         controlPanel.add(turboOnButton, 1);
         controlPanel.add(liftBedButton, 2);
-        controlPanel.add(brakeButton, 3);
-        controlPanel.add(turboOffButton, 4);
-        controlPanel.add(lowerBedButton, 5);
+        controlPanel.add(addCarButton, 3);
+        controlPanel.add(brakeButton, 4);
+        controlPanel.add(turboOffButton, 5);
+        controlPanel.add(lowerBedButton, 6);
+        controlPanel.add(removeCarButton, 7);
         controlPanel.setPreferredSize(new Dimension((X / 2) + 4, 200));
         viewFrame.add(controlPanel);
         controlPanel.setBackground(Color.CYAN);
@@ -162,6 +167,21 @@ public class CarView implements ModelUpdateListener {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 carSet.startAllCars();
+            }
+        });
+        addCarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                Car car = CarFactory.newVolvo();
+                car.turnLeft();
+                car.setCurrentPosition(new double[]{car.getCurrentPosition()[0], new Random().nextDouble() * 300});
+                carSet.addCar(car);
+            }
+        });
+        removeCarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                carSet.removeLastCar();
             }
         });
 
