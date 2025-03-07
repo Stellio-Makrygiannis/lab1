@@ -1,24 +1,35 @@
 package CarModel;
-
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 public class CarSet {
     public final List<Car> cars = new ArrayList<>();
+    public static final int maxCars = 10;
 
     public void addCar(Car car) {
-        cars.add(car);
+        if (cars.size() < maxCars) {
+            cars.add(car);
+        }
     }
 
     public void removeCar(Car car) {
         cars.remove(car);
     }
 
+    public void removeLastCar() {
+        if (!cars.isEmpty()) {
+            cars.removeLast();
+        }
+    }
+
     void move() {
         for (Car car : cars) {
-            car.move();
+            if (car.getCurrentSpeed() > 0) {
+                car.move();
+            }
         }
     }
 
@@ -40,17 +51,13 @@ public class CarSet {
     }
     public void turboOn() {
         for (Car car : cars) {
-            if (car instanceof Saab95) {
-                ((Saab95) car).setTurboOn();
-            }
+            car.setTurboOn();
         }
     }
 
     public void turboOff() {
         for (Car car : cars) {
-            if (car instanceof Saab95) {
-                ((Saab95) car).setTurboOff();
-            }
+            car.setTurboOff();
         }
     }
 
