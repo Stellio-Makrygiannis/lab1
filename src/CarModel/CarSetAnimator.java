@@ -16,6 +16,7 @@ public class CarSetAnimator {
         public void update() {
             carSet.move();
 
+          // Check collisions
             for (Car car : carSet.filterCars(car -> car.getCurrentPosition()[0] > 700)) {
                 // Hmmm... Maybe it's wrong to use the Car class directly instead of using it through th CarSet? But I'm not sure.
                 car.stopEngine();
